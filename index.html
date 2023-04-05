@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolip</title>
+    <style>
+        *{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'poppins'  , 'sans serif';
+    box-sizing: border-box;
+}
+body{
+    color: #fff;
+    background-color: #080808;
+}
+html{
+    scroll-behavior: smooth;
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/nodar.png);
+    /* double dot slash lagega agar ek step door hain toh ek step mtlb image folder se bahar */
+    background-size: cover;
+    background-position: center;
+}
+.dar{
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.dar span{
+    color: #ff004f;
+}
+.container{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: sans-serif;
+    position: relative;
+}
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+.header-text h1{
+    font-size: 40px;
+    margin-top: 20px;
+}
+.header-text h1 span{
+    color: #ff004f;
+}
+
+/* aout */
+#about{
+    padding: 80px 0;
+    color: #ababab;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width: 100%;
+    border-radius: 15px;
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+    font-family: sans-serif;
+
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+.tab-links.active-link::after{
+    width: 50%;
+}
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+}
+.tab-contents ul li span{
+    color: #b54769;
+    font-size: 14px;
+}
+.tab-contents{
+    display: none;
+}
+.tab-contents.active-tab{
+    display: block;
+}
+
+/* services */
+#services{
+    padding: 30px 0;
+}
+.services-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(250px , 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.services-list div{
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px ;
+    font-family: sans-serif;
+    transition: background 0.5s, transform 0.5s;
+}
+.services-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+}
+.services-list div a{
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    margin-top: 20px;
+    font-family: sans-serif;
+    display: inline-block;
+}
+.services-list div:hover{
+    background: #ff004f;
+    transform: translateY(-10px);
+}
+/* contact */
+.contact-left{
+    flex-basis: 35%;
+}
+.contact-right{
+    flex-basis: 60%;
+}
+.contact-left p{
+    margin-top: 30px;
+}
+.social-icons{
+    margin-top: 30px;
+}
+.social-icons a{
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 15px;
+    color: #ff004f;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+.social-icons a:hover{
+    text-decoration: underline;
+    transform: translateY(-5px);
+}
+.btn.btn2{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    font-family: sans-serif;
+    
+}
+.d{
+    color: white;
+    margin-top: 15px;
+    margin-left: 20px;
+    padding: 5px;
+    width: 180px;
+    height: 50px;
+    background: #ff004f;
+    border-radius: 15px;
+}
+.contact-right form{
+    width: 100%;
+}
+form input , form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+form .d{
+    padding: 14px 16px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #262626;
+    font-weight: 300;
+    margin-top: 20px;
+}
+/* responsive */
+.fa-sharp.fa-regular.fa-circle-xmark{
+    display: none;
+}
+.fa-solid.fa-bars{
+    display: none;
+}
+@media only screen and (max-width: 870px){
+    #header{
+        background-image: url(images/pppp.png);
+    }
+    .header-text{
+        width: 200px;
+        font-size: 16px;
+    }
+    .header-text h1{
+        margin-top: 5px;
+        font-size: 30px;
+    }
+    .fa-sharp.fa-regular.fa-circle-xmark{
+        display: block;
+        font-size: 25px;
+    }
+    .fa-solid.fa-bars{
+        display: block;
+        font-size: 25px;
+    }
+    nav ul{
+        background: #ff004f;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fa-sharp.fa-regular.fa-circle-xmark{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+
+    }
+    .sub-title{
+        font-size: 40px;
+    }
+    .about-col-1,.about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-2{
+        font-size: 14px;
+    }
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .contact-left,.contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
+    }
+}
+
+#msg{
+    color: #61b752;
+    margin-top: -10px;
+    display: block;
+}
+    </style>
+    <script src="https://kit.fontawesome.com/2d1dc2eca4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+
+        <div class='container'>
+            <nav>
+                <h1 class="dar"><span>D</span>arsh</h1>
+                <ul id = "sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-sharp fa-regular fa-circle-xmark" onclick="closemenu()"></i>
+
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+
+                <div class="header-text">
+                    <h1>Hi , I am Darsh <span>Gautam</span> <br>From India</h1>
+
+                </div>
+           
+
+        </div>
+
+    </div>
+
+    <!-- about -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-2">
+                    <h1 class='sub-title'>About me</h1>
+                    <p>Hello I am Darsh Gautam . I am from Haryana currently, I am pursuing my B.Tech degree at chandigarh university. I am showing my skills , projects  , experience and achievements through my portfolio. In the last of this You can download my resume and see this. If you want to contact me so their is a form in the last of this page through this page you can contact me. </p>
+
+                    <div class="tab-titles">
+                        <p class='tab-links active-link' onclick="opentab('skills')">Skills</p>
+                        <p class='tab-links' onclick="opentab('experience')">Experience</p>
+                        <p class='tab-links' onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web development</span> <br> Full Stack Web developer</li>
+                            <li><span>DSA</span> <br> Java programming</li>
+                            <li><span>Python</span> <br>Liberaries</li>
+                        </ul>
+
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>Hackshield</span> <br> Hackathon</li>
+                            <li><span>Coding competition</span> <br> chandigarh university</li>
+                        </ul>
+
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>B.Tech</span> <br> pursuing at chandigarh university</li>
+                            <li><span>2020</span> <br> Twelth at Delhi public school</li>
+                            <li><span>2018</span> <br>Tenth at Aggarwal public school</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- services -->
+    <div id='services'>
+        <div class='container'>
+            <h1 class='sub-title'>My Projects</h1>
+            <div class="services-list">
+                <div>
+                    <h2>Weather Web</h2>
+                    <p>I am make a website by using api , HTML and css. With the use of that you can check any country
+                        or state weather and not only weather you can check humidity , sunrise , sunset and so may
+                        parameters</p>
+                    <a href="https://lnkd.in/dZ34FYqi">Weaher Web link</a>
+                </div>
+                <div>
+                    <h2>My Portfolio</h2>
+                    <p>I am make my portfolio by using HTML , CSS AND JAVA Script. By checking this porfolio anyone can
+                        see my skills or projects and contact me.</p>
+                </div>
+                <div>
+                    <h2>CU Complaint Web</h2>
+                    <p>I am make a website by using HTML,CSS , Node js and mongodb . In this application student write
+                        his complaint and this complaint is access by authority member on this web . I am apply
+                        authentication system also</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class='sub-title'>Contact Me</h1>
+                    <p> darshgautam952@gmail.com</p>
+                    <p> 9667659447</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/darsh1123">My github ID</a>
+                        <a href="https://www.linkedin.com/in/gautam-darsh/">My Linked in ID</a>
+                    </div>
+                    <button class = 'd'><a href="" download class="btn btn2">Download Resume</a> </button>
+                </div>
+                <div class="contact-right">
+                    <form  name="submit-to-google-sheet">
+                        <input type="text" name = "Name" placeholder="Enter your name" required>
+                        <input type="email" name = "Email" placeholder="Enter your Email" required>
+                        <textarea name="Message" id="" placeholder="Your Message" rows="6"> </textarea>
+                        <button type="submit" class = "d">Submit</button>
+                    </form>
+                    <span id = "msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Darsh Gautam. Made with by HTML , CSS , Java Script
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbytZs0QfayP3cF1C4-TvMHPydXejKNxLK6fSIS_wY0xKe18i0rAkwvFuGHuzsyPrlFA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function() {
+                    msg.innerHTML = ""
+                } , 5000)
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+</body>
+
+</html>
